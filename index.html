@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GST Calculator</title>
+    <style>
+        .box{
+            background-color:black;
+            width:300px;
+            height:500px;
+            margin:auto;
+            margin-top:10%;
+            /* display:flex; */
+            /* align-items: center; */
+            border-radius: 10px;;
+
+        }
+        #selectme{
+            margin-top:30px;
+        }
+        h10{
+            color:white;
+        }
+        form{
+            margin:0px 30px;
+        }
+    </style>
+</head>
+<body>
+    <!-- <embed src="Scam 1992 Ringtone_320(PaglaSongs).mp3" loop="true" autostart="true" width="2" height="0"> -->
+    <div class="box">
+        <h3 style="color:whitesmoke;text-align: center;padding-top:30px;">GST Calculator</h3>
+        <form name="form">
+            <h10>GST RATE  =</h10>    <select name="GSTselect" id="selectme" style="font-family: font-awesome;">
+                <option value="1" name="option1">28%</option>
+                <option value="2">18%</option>
+                <option value="3">12%</option>
+                <option value="4">5%</option>
+         
+          
+
+            </select><br><br>
+            <input type="text" name="answer" id="answer" placeholder="
+           Enter Amount Here" style="width:200px;border-radius: 10px;font-family: 'font-awesome'">
+
+        </form>
+        <br>
+        <button id="submitbutton" onclick="findgst()"  style="margin:0px 30px;">Calculate</button>
+        <button id="submitbutton" onclick="clearall()"  >Clear All</button><br><br>
+        <h10 style="margin:0px 30px;">Amount without GST ==></h10><br><br><span style="color:whitesmoke;margin-left:70px;font-family: font-awesome;;" id="AmountwithoutGST"></span>
+        <br><br>
+        <h10 style="margin:0px 30px;">GST Amount(<span id="gstrate"></span>) ==></h10><br><br><span style="color:whitesmoke;font-family: font-awesome;;margin-left:70px;" id="GSTAmount"></span>
+           <br><br>
+           <h10 style="margin:0px 30px;">Total Amount Including GST==></h10><br><br><span id="totalprice" style="color:whitesmoke;font-family: font-awesome;;margin:0px 70px;"></span>
+
+           <br><br>
+           <!-- <h10 style="margin:0px 30px;">Share Link</h10><br><br><span id="totalprice" style="color:whitesmoke;margin:0px 70px;"></span> -->
+    
+    
+        </div>
+    <script>
+        function findgst(){
+            // const x=document.getElementById(form.answer.value);
+            
+            if(form.GSTselect.value==1)
+            {
+                if(form.answer.value=="")
+                {  
+                    document.getElementById("GSTAmount").innerHTML="Please Enter GST Amount";
+                    document.getElementById("totalprice").innerHTML="Please Enter GST Amount";
+                }
+                else{
+                var z=form.answer.value*0.28;
+              
+                document.getElementById("GSTAmount").innerHTML=z;
+                document.getElementById("gstrate").innerHTML="28%";
+                document.getElementById("totalprice").innerHTML=parseInt(form.answer.value) + parseInt(z);
+                document.getElementById("AmountwithoutGST").innerHTML=form.answer.value;
+                }
+
+            }
+            if(form.GSTselect.value==2)
+            {
+                if(form.answer.value=="")
+                {
+                    document.getElementById("GSTAmount").innerHTML="Please Enter GST Amount";
+                }
+                else{
+                var z=form.answer.value*0.18;
+                document.getElementById("GSTAmount").innerHTML=z;
+                document.getElementById("gstrate").innerHTML="18%";
+                document.getElementById("totalprice").innerHTML=parseInt(form.answer.value) + parseInt(z);
+                document.getElementById("AmountwithoutGST").innerHTML=form.answer.value;
+                }
+
+            }
+            if(form.GSTselect.value==3)
+            {
+                if(form.answer.value=="")
+                {
+                    document.getElementById("GSTAmount").innerHTML="Please Enter GST Amount";
+                }
+                else{
+                var z=form.answer.value*0.12;
+                document.getElementById("GSTAmount").innerHTML=z;
+                document.getElementById("gstrate").innerHTML="12%";
+                document.getElementById("totalprice").innerHTML=parseInt(form.answer.value) + parseInt(z);
+                document.getElementById("AmountwithoutGST").innerHTML=form.answer.value;
+                }
+
+            }
+            if(form.GSTselect.value==4)
+            {
+                if(form.answer.value=="")
+                {
+                    document.getElementById("GSTAmount").innerHTML="Please Enter GST Amount";
+                }
+                else{
+                var z=form.answer.value*0.05;
+                document.getElementById("GSTAmount").innerHTML=z;
+                document.getElementById("gstrate").innerHTML="5%";
+                document.getElementById("totalprice").innerHTML=parseInt(form.answer.value) + parseInt(z);
+                document.getElementById("AmountwithoutGST").innerHTML=form.answer.value;
+                }
+
+            }
+        }
+        function clearall(){
+            form.answer.value="";
+            document.getElementById("GSTAmount").innerHTML="";
+            document.getElementById("gstrate").innerHTML="";
+            document.getElementById("AmountwithoutGST").innerHTML="";
+            document.getElementById("totalprice").innerHTML="";
+        }
+       
+    </script>
+</body>
+</html>
